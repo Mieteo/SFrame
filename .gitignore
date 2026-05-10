@@ -43,3 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Claude Code worktrees (auto-tạo bởi harness, không nên commit)
+.claude/worktrees/
+.claude/settings.local.json
