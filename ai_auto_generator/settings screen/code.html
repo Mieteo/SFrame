@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Snap Frame - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#707579",
+                        "on-tertiary-container": "#fbfcff",
+                        "surface-variant": "#d8e3fb",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-primary": "#adc6ff",
+                        "surface-container-low": "#f0f3ff",
+                        "on-secondary-container": "#54647a",
+                        "on-surface": "#111c2d",
+                        "inverse-on-surface": "#ecf1ff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e7eeff",
+                        "on-tertiary-fixed": "#171c1f",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#fefcff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "surface-dim": "#cfdaf2",
+                        "outline-variant": "#c2c6d6",
+                        "outline": "#727785",
+                        "primary-container": "#2170e4",
+                        "on-error": "#ffffff",
+                        "secondary": "#505f76",
+                        "secondary-container": "#d0e1fb",
+                        "primary-fixed-dim": "#adc6ff",
+                        "tertiary-fixed": "#dfe3e7",
+                        "primary": "#0058be",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9ff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#585d60",
+                        "tertiary-fixed-dim": "#c3c7cb",
+                        "secondary-fixed": "#d3e4fe",
+                        "inverse-surface": "#263143",
+                        "on-surface-variant": "#424754",
+                        "on-primary": "#ffffff",
+                        "on-background": "#111c2d",
+                        "surface-container-highest": "#d8e3fb",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-high": "#dee8ff",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-tint": "#005ac2",
+                        "on-tertiary-fixed-variant": "#43474b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin": "20px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "button": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "button": ["16px", {"lineHeight": "20px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline-variant fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-margin py-sm w-full max-w-full mx-auto h-16">
+<div class="flex items-center gap-sm text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="movie_edit">movie_edit</span>
+<h1 class="text-headline-sm font-headline-sm font-bold">Snap Frame</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC70EN2q6JaG3YMNqDRzywgCHN_dA7wXoYRadq76y0dKqnjPe-IT_dimzIli3RlBiSPhUo7kxCyaN_saqroHMRJexyHnb_DkqD1-tFbAFHG4R0Lm6KkuNKNPkTbPQRC7r76o758gn1-Ii38atIsupUAPZRHdOmhGD3O2e8Rc-nSz1vnMTpf0h-pzfqSQF5DLec8HtJxQqgMeiWl0M37BCHcgvDM74-5JXDPzEYTFcbhOfhoA3d3UMLKDdjd65D1BemaykIP7xXr7Dg"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin max-w-2xl mx-auto">
+<div class="mb-xl">
+<h2 class="text-headline-md font-headline-md text-on-surface">Cài đặt</h2>
+</div>
+<!-- Section: Cấu hình xuất -->
+<section class="mb-xl">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary" data-icon="settings_suggest">settings_suggest</span>
+<h3 class="text-body-lg font-bold text-on-surface">Cấu hình xuất</h3>
+</div>
+<div class="space-y-lg">
+<!-- FPS Item -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<div class="flex flex-col gap-xs mb-md">
+<label class="text-body-md font-bold text-on-surface" for="fps-select">Frames per second (fps)</label>
+<p class="text-label-md font-label-md text-on-surface-variant">Số lượng ảnh được trích xuất mỗi giây</p>
+</div>
+<div class="relative">
+<select class="w-full h-12 px-md appearance-none bg-surface-container border border-outline-variant rounded-lg text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="fps-select">
+<option value="all">Tất cả</option>
+<option value="30">30</option>
+<option value="25">25</option>
+<option value="24">24</option>
+<option value="15">15</option>
+</select>
+<div class="absolute right-md top-1/2 -translate-y-1/2 pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Format Item -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<div class="flex flex-col gap-xs mb-md">
+<label class="text-body-md font-bold text-on-surface">Định dạng ảnh đầu ra</label>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<label class="relative flex items-center justify-center h-12 cursor-pointer group">
+<input checked="" class="peer sr-only" name="format" type="radio" value="png"/>
+<div class="w-full h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container text-body-md peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary transition-all">
+                                PNG
+                            </div>
+</label>
+<label class="relative flex items-center justify-center h-12 cursor-pointer group">
+<input class="peer sr-only" name="format" type="radio" value="jpg"/>
+<div class="w-full h-full flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container text-body-md peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary transition-all">
+                                JPG
+                            </div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Bento-ish Card for Info -->
+<section class="grid grid-cols-1 gap-md">
+<div class="bg-primary-container text-on-primary-container p-xl rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-body-lg font-bold mb-sm">Chế độ chuyên nghiệp</h4>
+<p class="text-body-md opacity-90 max-w-[80%]">Tối ưu hóa quy trình trích xuất khung hình từ video chất lượng cao với độ trễ thấp nhất.</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-[120px] opacity-10" data-icon="speed">speed</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline-variant flex justify-around items-center px-md pb-lg pt-sm rounded-t-xl shadow-sm dark:shadow-none">
+<!-- Main Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-md font-label-md">Main</span>
+</a>
+<!-- Results Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+<span class="text-label-md font-label-md">Results</span>
+</a>
+<!-- Settings Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed rounded-full px-4 py-1 scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-label-md font-label-md font-bold">Settings</span>
+</a>
+</nav>
+</body></html>

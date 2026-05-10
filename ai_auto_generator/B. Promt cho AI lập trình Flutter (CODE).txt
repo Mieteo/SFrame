@@ -1,0 +1,57 @@
+Viết mã nguồn hoàn chỉnh bằng ngôn ngữ Dart, framework Flutter cho ứng dụng di động tên "Snap Frame". Ứng dụng cho phép người dùng chọn một video từ thiết bị, chọn khoảng thời gian, cắt video thành các khung hình (frame) và quản lý kết quả. Yêu cầu cụ thể về kiến trúc, backend (xử lý video) và frontend (giao diện) như sau:
+
+TỔNG QUAN ỨNG DỤNG
+- Tên ứng dụng: Snap Frame.
+- Điều hướng chính sử dụng BottomNavigationBar với 3 tab: "Chính" (màn hình cắt), "Kết quả" (xem frame đã cắt), "Cài đặt".
+- Quản lý trạng thái bằng Provider (hoặc Riverpod) để đồng bộ dữ liệu giữa các tab.
+
+DANH SÁCH PACKAGE CẦN THIẾT (pubspec.yaml)
+  file_picker: ^5.5.0 (chọn file video)
+  video_player: ^2.7.0 (phát video trong preview)
+  ffmpeg_kit_flutter: ^6.0.3 (xử lý cắt frame bằng FFmpeg, đây là lựa chọn mạnh mẽ nhất, hỗ trợ tùy chỉnh fps và định dạng ảnh linh hoạt)
+  gallery_saver: ^2.3.2 (lưu ảnh vào thư viện thiết bị)
+  share_plus: ^7.2.1 (chia sẻ ảnh qua ứng dụng khác)
+  clipboard_image: ^1.0.1 (sao chép ảnh vào clipboard – nếu không hỗ trợ ảnh trên nền tảng thì fallback sao chép đường dẫn file dạng văn bản)
+  path_provider: ^2.1.1 (lấy thư mục tạm để lưu frame)
+  permission_handler: ^11.0.1 (xin quyền truy cập bộ nhớ)
+  shared_preferences: ^2.2.2 (lưu cài đặt fps và định dạng ảnh)
+  provider: ^6.1.1 (quản lý state)
+
+MÀN HÌNH CHÍNH (MainScreen)
+- Cho phép chọn file video bằng file_picker (chỉ lọc file video: mp4, mov, avi...).
+- Khi video được chọn, hiển thị loading indicator, đồng thời gọi backend phân tích video (lấy tổng thời lượng, fps gốc,...) và hiển thị preview.
+- Sử dụng video_player để preview video. Trình phát có thể play/pause khi nhấn.
+- Thanh trượt kép (RangeSlider) cho phép chọn điểm bắt đầu (begin) và kết thúc (end) tính bằng giây (double), giá trị từ 0 đến duration video. Hiển thị nhãn thời gian tương ứng (định dạng mm:ss).
+- Tính toán tự động: thời lượng cắt = end - begin (giây); số lượng frame sẽ cắt = (end - begin) * fps_được_chọn (nếu chọn 'Tất cả frame' thì dùng fps gốc của video hoặc lấy toàn bộ frame trong khoảng đó).
+- Nút "Bắt đầu cắt frame" sẽ gọi hàm backend cắt frame và chuyển sang tab "Kết quả" sau khi hoàn tất.
+
+BACKEND XỬ LÝ CẮT FRAME
+- Sử dụng ffmpeg_kit_flutter để thực hiện lệnh FFmpeg. Lệnh cơ bản:
+  ffmpeg -ss {begin} -i {inputPath} -t {duration} -vf fps={fps} -q:v 2 {outputDir}/frame_%04d.{png/jpg}
+  Trong đó begin, duration (end-begin), fps được lấy từ cài đặt; nếu fps = 'Tất cả frame' thì bỏ qua tham số fps, thay bằng -vsync 0 để trích xuất toàn bộ frame.
+- Frame xuất ra lưu vào thư mục tạm (getTemporaryDirectory()). Đường dẫn thư mục sẽ được lưu trong state.
+- Trả về danh sách các file ảnh đã tạo.
+- Bắt lỗi và hiển thị thông báo nếu quá trình thất bại.
+
+MÀN HÌNH KẾT QUẢ (ResultScreen)
+- Nhận danh sách ảnh (List<String> paths) từ Provider.
+- Hiển thị dạng lưới (GridView.builder, crossAxisCount = 3). Mỗi ô là Image.file thumbnail.
+- Hỗ trợ chọn nhiều ảnh: dùng Set<int> lưu index đã chọn. Nhấn vào 1 ảnh sẽ toggle chọn/bỏ chọn. Ảnh được chọn sẽ có viền màu xanh dương và biểu tượng tick nhỏ ở góc.
+- Thanh công cụ nổi (FloatingActionButton mở rộng hoặc BottomAppBar với Row) chứa 3 icon button: Chia sẻ (share), Sao chép (copy), Lưu (save), tất cả disable khi chưa chọn ảnh nào.
+  + Chia sẻ: gọi share_plus.shareXFiles với danh sách file ảnh đã chọn.
+  + Sao chép: sử dụng clipboard_image để copy ảnh đầu tiên được chọn vào clipboard (nếu package hỗ trợ); nếu không, sao chép đường dẫn file dạng văn bản.
+  + Lưu vào thư viện: dùng gallery_saver.saveImage cho từng ảnh đã chọn, xin quyền nếu cần. Hiển thị thông báo thành công.
+- Khi chưa có ảnh, hiển thị text "Chưa có frame nào" ở giữa màn hình.
+
+MÀN HÌNH CÀI ĐẶT (SettingsScreen)
+- Lấy giá trị từ SharedPreferences: fps (string, mặc định "30") và outputFormat (string, mặc định "png").
+- Dropdown chọn fps: các lựa chọn "Tất cả frame", "30", "25", "24", "15", "10". Mỗi lựa chọn lưu vào SharedPreferences.
+- Radio hoặc Dropdown chọn định dạng ảnh: "png" hoặc "jpg", lưu lại.
+- Các thay đổi được áp dụng ngay, không cần nút lưu riêng.
+
+YÊU CẦU CODE:
+- Kiến trúc tách biệt rõ ràng: screens, widgets, services (video_service.dart xử lý ffmpeg), providers.
+- Sử dụng các stateful widget khi cần; dùng Provider để bọc toàn bộ app, cung cấp VideoState, SettingsState.
+- Xử lý tốt vòng đời ứng dụng (dispose controller, hủy tiến trình FFmpeg khi thoát).
+- Có comment tiếng Anh hoặc tiếng Việt giải thích các phần chính.
+- FFmpeg là lựa chọn tối ưu cho tác vụ cắt frame vì tính linh hoạt, hiệu suất và hỗ trợ hầu hết video format – vui lòng sử dụng ffmpeg_kit_flutter, không cần tìm phương án thay thế.

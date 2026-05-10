@@ -1,0 +1,58 @@
+name: snap_frame
+description: "Snap Frame - Cắt video thành các frame ảnh."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Chọn file video từ thiết bị. Bản 5.x dùng Flutter v1 embedding (đã bị
+  # gỡ khỏi Flutter 3.29+), buộc phải dùng bản >=8 — API tương đương.
+  file_picker: ^8.0.0
+
+  # Phát video preview
+  video_player: ^2.7.0
+
+  # Cắt frame bằng FFmpeg. Gói gốc `ffmpeg_kit_flutter ^6.0.3` đã bị gỡ
+  # khỏi Maven (Arthenica ngừng maintain đầu 2025). Dùng fork cộng đồng
+  # `ffmpeg_kit_flutter_new` cùng API để đảm bảo build được.
+  ffmpeg_kit_flutter_new: ^3.0.0
+
+  # Lưu ảnh vào thư viện thiết bị. `gallery_saver ^2.3.2` không build được
+  # với AGP 8+ (manifest dùng `package=` đã bị deprecate). Dùng `gal` —
+  # API tương đương, được maintain tích cực.
+  gal: ^2.3.0
+
+  # Chia sẻ file qua các app khác
+  share_plus: ^7.2.1
+
+  # Lấy thư mục tạm để lưu frame
+  path_provider: ^2.1.1
+
+  # Xin quyền lưu trữ
+  permission_handler: ^11.0.1
+
+  # Lưu cài đặt người dùng
+  shared_preferences: ^2.2.2
+
+  # State management
+  provider: ^6.1.1
+
+  # Tiện ích join path đa nền tảng
+  path: ^1.8.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

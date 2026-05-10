@@ -1,0 +1,25 @@
+Thiết kế giao diện người dùng cho ứng dụng di động tên "Snap Frame", chạy trên điện thoại, sử dụng ngôn ngữ Dart/Flutter. Ứng dụng có 3 màn hình chính, điều hướng qua thanh tab dưới cùng với 3 tab: "Chính", "Kết quả", "Cài đặt". Yêu cầu chi tiết cho từng màn hình như sau:
+
+1. MÀN HÌNH CHÍNH (Tab "Chính"):
+- Khu vực trên cùng: một nút lớn "Chọn video" (icon thư mục) dùng để mở trình chọn file video từ bộ nhớ thiết bị. Khi video đang được tải và phân tích, hiển thị vòng tròn loading kèm chữ "Đang tải..." ở giữa màn hình.
+- Khu vực preview video: sau khi video được tải xong, hiển thị trình phát video dạng hình chữ nhật lớn, bo góc nhẹ. Người dùng có thể nhấn vào để phát/dừng video như bình thường.
+- Bên dưới preview là một thanh trượt kép (range slider) cho phép kéo thả hai điểm "Bắt đầu" và "Kết thúc" (điểm cắt frame). Hiển thị mốc thời gian dạng mm:ss tương ứng với từng điểm.
+- Khu vực thông tin cắt: hiển thị 2 dòng dữ liệu: "Thời lượng cắt: X giây" và "Số lượng frame sẽ cắt: Y ảnh".
+- Nút "Bắt đầu cắt frame" màu nổi bật, đặt dưới cùng màn hình.
+
+2. MÀN HÌNH KẾT QUẢ (Tab "Kết quả"):
+- Hiển thị các ảnh frame đã cắt dưới dạng lưới ảnh (grid), mỗi ô là một ảnh thumbnail vuông vừa màn hình (3 cột). Khi chưa có frame nào, hiển thị thông báo "Chưa có frame nào được cắt. Hãy quay lại tab Chính để bắt đầu".
+- Cho phép chọn một hoặc nhiều ảnh bằng cách nhấn giữ hoặc nhấn vào nút chọn; ảnh đã chọn sẽ có viền màu nổi bật và dấu tick.
+- Thanh công cụ nổi ở cuối màn hình (floating action bar hoặc bottom bar trong tab này) gồm 3 nút: "Chia sẻ", "Sao chép vào clipboard", "Lưu vào thư viện ảnh". Các nút chỉ khả dụng khi có ít nhất một ảnh được chọn.
+
+3. MÀN HÌNH CÀI ĐẶT (Tab "Cài đặt"):
+- Các mục cài đặt kiểu danh sách, phân nhóm rõ ràng.
+- Mục "Frames per second (fps)": dropdown lựa chọn: Tất cả frame, 30 fps, 25 fps, 24 fps, 15 fps... Kèm giải thích ngắn.
+- Mục "Định dạng ảnh đầu ra": chọn giữa PNG và JPG bằng radio button hoặc dropdown.
+- Giao diện sạch sẽ, có thể thêm mô tả phụ dưới mỗi mục.
+
+YÊU CẦU THIẾT KẾ CHUNG:
+- Phong cách hiện đại, tối giản, sử dụng màu sắc nhã nhặn (tông xanh dương nhạt - trắng hoặc dark mode tùy chọn).
+- Bố cục rõ ràng, dễ thao tác bằng một tay trên điện thoại.
+- Các thành phần có kích thước phù hợp, khoảng cách hợp lý.
+- Hãy đưa ra wireframe hoặc mô tả layout chi tiết cho từng màn hình, bao gồm vị trí, kích thước tương đối của từng thành phần.

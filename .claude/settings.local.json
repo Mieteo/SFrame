@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"F:\\\\Flutter\\\\Copilot\\\\SFrame\\\\snap_frame\")",
+      "PowerShell(Get-ChildItem -Path \"F:\\\\Flutter\\\\Copilot\\\\SFrame\\\\snap_frame\\\\lib\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "Bash(flutter --version)",
+      "Bash(flutter pub *)",
+      "Bash(flutter analyze *)",
+      "Bash(flutter test *)",
+      "Bash(flutter build *)"
+    ]
+  }
+}

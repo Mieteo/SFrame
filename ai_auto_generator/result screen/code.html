@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#707579",
+                    "on-tertiary-container": "#fbfcff",
+                    "surface-variant": "#d8e3fb",
+                    "on-primary-fixed": "#001a42",
+                    "inverse-primary": "#adc6ff",
+                    "surface-container-low": "#f0f3ff",
+                    "on-secondary-container": "#54647a",
+                    "on-surface": "#111c2d",
+                    "inverse-on-surface": "#ecf1ff",
+                    "error": "#ba1a1a",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary-fixed": "#171c1f",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-bright": "#f9f9ff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#fefcff",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "surface-dim": "#cfdaf2",
+                    "outline-variant": "#c2c6d6",
+                    "outline": "#727785",
+                    "primary-container": "#2170e4",
+                    "on-error": "#ffffff",
+                    "secondary": "#505f76",
+                    "secondary-container": "#d0e1fb",
+                    "primary-fixed-dim": "#adc6ff",
+                    "tertiary-fixed": "#dfe3e7",
+                    "primary": "#0058be",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9ff",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#585d60",
+                    "tertiary-fixed-dim": "#c3c7cb",
+                    "secondary-fixed": "#d3e4fe",
+                    "inverse-surface": "#263143",
+                    "on-surface-variant": "#424754",
+                    "on-primary": "#ffffff",
+                    "on-background": "#111c2d",
+                    "surface-container-highest": "#d8e3fb",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-container-high": "#dee8ff",
+                    "on-primary-fixed-variant": "#004395",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-tint": "#005ac2",
+                    "on-tertiary-fixed-variant": "#43474b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin": "20px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "button": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "button": ["16px", {"lineHeight": "20px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface docked full-width top-0 border-b border-outline-variant flex justify-between items-center px-margin py-sm w-full max-w-full mx-auto sticky z-40">
+<div class="flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined text-headline-sm" data-icon="movie_edit">movie_edit</span>
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary">Snap Frame</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcbKnKxwbBxrFXli-IWCvpgXeNRfed6r3J9Ekn639Bti88U0SYYrqRrSsHL8clI4p_ELq-amtwA-EaLU8ePKrmJIkU2vw7ac1efGGftqgslyu-7hN2EYfB2PtnbPifcPKtCRimXO1VFySry-W67gHwK3WMix3rpSpC85lbnjyjlK54B-1mrFXKECwsdAqB_aCPplLq2AemFT03F0N-cZ760wVgDZ1awytXNWljeQzj89FVml8-6LKca-Tt173zxfbnydrftd_-0_k"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="px-margin pt-lg">
+<header class="mb-lg">
+<h2 class="text-headline-md font-headline-md text-on-surface">Kết quả</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Chọn các frame bạn muốn chia sẻ hoặc lưu lại.</p>
+</header>
+<!-- Bento-style Gallery Grid -->
+<div class="grid grid-cols-3 gap-xs md:gap-sm">
+<!-- Grid Item 1 (Selected) -->
+<div class="relative aspect-square rounded-lg overflow-hidden border-2 border-primary ring-2 ring-primary ring-offset-2 transition-all scale-95 duration-150 ease-in-out">
+<img class="w-full h-full object-cover" data-alt="A cinematic medium shot of a modern architectural building with clean glass lines and soft morning sunlight. The color palette is composed of cool blues and crisp whites, reflecting a professional and airy minimalist aesthetic characteristic of high-end photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjzVcYh0yAWIJ56uFVbpOtiBHcoyRbNZgGVcPzhhSizL3S1eTfgYp8AOVqNa8YQ4VqH6DakKWaj9WkYnd9R-OQdicf2ugQjUEah4GDL9fvXOa5FZfTdRJKQd1KvrV8cXpjHNj4RQojobjAh6QMQ2SE4vbHKLpefsDnpSVor5XicODZfKPzEGWOlj3kIjhIXv-kvF11EKoTAmMI2dMWv_VWf_euR3NklL-ATRkDIFt_XWXP2-HX-OAgOGc6XnDknalmUqivN05aeq8"/>
+<div class="absolute top-1 right-1 bg-primary text-on-primary rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Grid Item 2 -->
+<div class="relative aspect-square rounded-lg overflow-hidden border border-outline-variant hover:bg-surface-container-low transition-colors">
+<img class="w-full h-full object-cover" data-alt="A breathtaking landscape frame showing a misty forest at dawn with soft, diffused green and grey tones. The composition is clean and organized, focusing on the natural gradient of the trees under a pale, minimalist sky, matching the professional utility style of the design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1wWEeJAXjNGQqnn-Knn6EXqmsPhbWOrP-m0a_ZmkqJikOPmOY_-gvSShB1oQ3Olp61JcE6aHBTa_4CekpsR7_RyiVOeOLdcqNZnNR8k_hQTjIrU8pTzh79bsyDRP5je7f9e8cSBBcL2Cu68VLDDyU_7jg8C_7FrUYp91phTYdiUY5ilgjpPRlArf1dQ1TrlEyMUGrEQBql9T9WWlb49e45MvcgUfGzfOkJpJ1H9viwnyK7-bxn0Q_w0TvZMvs7SKxsG5daTapI9s"/>
+</div>
+<!-- Grid Item 3 (Selected) -->
+<div class="relative aspect-square rounded-lg overflow-hidden border-2 border-primary ring-2 ring-primary ring-offset-2 transition-all scale-95 duration-150 ease-in-out">
+<img class="w-full h-full object-cover" data-alt="A vertical frame capturing sunlight filtering through dense green forest leaves, creating a vibrant yet calm atmosphere. The lighting is high-key and natural, emphasizing clarity and precision in every leaf detail, aligned with a modern minimalist and content-first visual philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEwNR_yrrORIYRObPcEkb81bAtO0MDuHQeadH4BHqCFDZF706Cf0ojbk_kaqt9xNxWjtNLYwidnVMamQ6YMatEQGNLmtGOzhaBHvoSycBjSkrHmwEhgSnEsZ6DKdRJqo0Qy0RtiSoQzCfkvcVPCjF-M43o3EUFZ7yiYhgz35XyO91Xv2h5tLdKE0rRQLchzNT8OHAYovNTi8UbBFrHSnGYS1ueADGZ4yCLneGOljHvgAbHQM6xtd3qj4KW0Ea3zDcPJjEmiYR0wEI"/>
+<div class="absolute top-1 right-1 bg-primary text-on-primary rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Grid Item 4 -->
+<div class="relative aspect-square rounded-lg overflow-hidden border border-outline-variant hover:bg-surface-container-low transition-colors">
+<img class="w-full h-full object-cover" data-alt="An expansive mountain range under a clear, bright blue sky. The framing is wide and airy with significant negative space at the top, following the 4px baseline shift rhythm for a balanced and breathable visual experience in a light-mode layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1keIlbAXx-6fWzaBogDq_suM44T_Ax2rK01OA2NbXxsei0kQc1C1a9UrJJnFiHE05tFfYK-nhrlNremNwqM42uE_6rGcktVmn336iY_iuYOx9zw3EJDPsR794FVaFym9FRmxJKz8JuH6QIbrjgL9w9HlUHWYoipd6PoZIN6V5oD0gflVhFq53mTl4gfSfuCVzSFW7hT475oxrMAZN7413AYO29ZUV0mmbFk9p_FpWJmeAY_xKux_9trZ3hxHAjZgbiVeHmtrPZ18"/>
+</div>
+<!-- Grid Item 5 -->
+<div class="relative aspect-square rounded-lg overflow-hidden border border-outline-variant hover:bg-surface-container-low transition-colors">
+<img class="w-full h-full object-cover" data-alt="A detailed macro frame of a wooden bridge path leading into a lush park. The perspective is low-angle and inviting, utilizing soft ambient shadows and low-contrast outlines to define depth without heavy decorative elements, consistent with a modern minimalist design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV96uodTqBbPLGljhVOZTWu_rAr_Hd1h_y2VSrproSS7EqZgMiZJqR5g8tiK7saLNQOuuXW8IotLHG_AVPeYaFTuo08bYZYhG6QmUOKmOTshQgAxxsBbsLhAUyhiLvAx80ZQO35KDU5Gs2OvxqjaCfhv1QNenFh6f6F9MQn5sZhxOXhrR8uLQBPBsNe656i7LK9Q3yBhoPw8uBghRbrnpZi_qx5eJh5d8mUqhaX8rcw26Ndvjadh5y2Gom5s4_EEuQ51NhfgR0LK8"/>
+</div>
+<!-- Grid Item 6 (Selected) -->
+<div class="relative aspect-square rounded-lg overflow-hidden border-2 border-primary ring-2 ring-primary ring-offset-2 transition-all scale-95 duration-150 ease-in-out">
+<img class="w-full h-full object-cover" data-alt="A sharp, clear frame of jagged mountain peaks against a soft white sky. The image utilizes a restricted color palette of grey, white, and deep blue, creating a sense of organized calm and dependable utility within the user's content feed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEViAXl8WzoYSjtRTAa0gzF1qmyaCMLl2wDt5p4GK-VErw9_1oqL7BAdcdEP1XdG5Cg_boJhQ_nT10H8cRROZ9830nyV48xG4zaSyn9hq_XuQIMjJMaHpdT5HUyzC94LL7bJo6dk-3MnebVWeZY20fFxFjitRzq-BMuKxS9qRWxpPC-nUBtACaKLDlhCRqtPDULq5To6KEHxExoulm5u5QiLy_U4_lXwldy5fgrp5dB_nniZoCWi1NWhpKuOoOYiVYJZI_TXXtCh4"/>
+<div class="absolute top-1 right-1 bg-primary text-on-primary rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Grid Item 7 -->
+<div class="relative aspect-square rounded-lg overflow-hidden border border-outline-variant hover:bg-surface-container-low transition-colors">
+<img class="w-full h-full object-cover" data-alt="A calm sunset scene over a quiet lake, with soft orange and purple hues reflecting on the water surface. The mood is serene and minimalist, with a composition that prioritizes the 'frame' itself, ensuring a frictionless and ergonomic visual focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw_w9F7GB6EH1LPfC9R38wX0Mu9V6nH1YxWpYjTTJr6b7nTQc6GVbcjfT2XMSb0gsJZYAbyLtiGL8K5vqzf8wyuVb_0XJWhr0KpTqvNypl44aD8C8uCcHP_notUrzMHb8s8GsGKbQx7c9RZBIRoBxkNttwIdBjToKMLzBEu35YyTIpEIt7J6F5wVrwtOcTUXvDNXnnAo1VfrCeOr8DGtW21fFyqlASD9b_XEhCzx4Rm3WP5pCOpjXavOgNFX8gwbNC_R9O43ysc9k"/>
+</div>
+<!-- Grid Item 8 -->
+<div class="relative aspect-square rounded-lg overflow-hidden border border-outline-variant hover:bg-surface-container-low transition-colors">
+<img class="w-full h-full object-cover" data-alt="Lush green rolling hills under a bright midday sun. The visual style is crisp and professional, using high-key lighting to maintain a bright, light-mode aesthetic that feels airy and dependable for content management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWU5Pj0ZLeA7pt3ckx8wWDIXCkWz8zD_Ku-Ei1rqqCMKn40_M35C-0gPuauKeEOTTQzlGZSG3GqvAwpAHQF8D_K0wKgvhnWaMFKVFB5YdcYUbo-S--VgfLJbRKJfGJLlY-uM1iokxTtoStjgqZLK1hXIl9TvMQ6zC0KIMaq554BB4ys7iybkI46n8ZBGpa7c-IZe-jSI15UnxF4kvUYr62gPosCP71VhV07wI5c-8CZsUrIxQDnHLlYXBMT7NO6_X_cqsHbPF5lWE"/>
+</div>
+<!-- Grid Item 9 -->
+<div class="relative aspect-square rounded-lg overflow-hidden border border-outline-variant hover:bg-surface-container-low transition-colors">
+<img class="w-full h-full object-cover" data-alt="A vibrant shot of waves crashing on a sandy beach during blue hour. The deep blues of the water contrast with the soft white foam, creating a professional and airy feel that leverages generous white space and a content-first philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR5wDRh8YsyQXHUpyqXqfJHm63e-EK4Pgmc_dausOFk5bo7ChbJJlah1kQNev1QhSXW0rQ1dN_XKlNAin2-B1aFYUkblUchkvtThLAX6c5sNwbeqFPILV7jkGcV3Z89m2UTUI6ZUjWR-lv-qQwbkoMG1xQqQDUYPtWArvPtWTuWynk4--wMaMuvjxGh3NUpJZK4_F0Z_X8g9VHOJbfUjhUlQhTqaARX2-GpDmN057LdpI6ysbhi4-Mod3QIakEoSjGWft96rE-Jhk"/>
+</div>
+</div>
+</main>
+<!-- Floating Action Bar (FAB-like Container) -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 flex items-center gap-md bg-inverse-surface text-inverse-on-surface px-lg py-sm rounded-full shadow-lg border border-outline/20">
+<button class="flex flex-col items-center gap-xs active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-headline-sm" data-icon="share">share</span>
+<span class="text-label-md font-label-md">Chia sẻ</span>
+</button>
+<div class="w-px h-8 bg-outline/30"></div>
+<button class="flex flex-col items-center gap-xs active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-headline-sm" data-icon="content_copy">content_copy</span>
+<span class="text-label-md font-label-md">Sao chép</span>
+</button>
+<div class="w-px h-8 bg-outline/30"></div>
+<button class="flex flex-col items-center gap-xs active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-headline-sm" data-icon="download">download</span>
+<span class="text-label-md font-label-md">Lưu</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-md pb-lg pt-sm bg-surface border-t border-outline-variant rounded-t-xl shadow-sm">
+<!-- Main Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-md font-label-md">Chính</span>
+</a>
+<!-- Results Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="video_library" style="font-variation-settings: 'FILL' 1;">video_library</span>
+<span class="text-label-md font-label-md font-bold">Kết quả</span>
+</a>
+<!-- Settings Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-md font-label-md">Cài đặt</span>
+</a>
+</nav>
+</body></html>
