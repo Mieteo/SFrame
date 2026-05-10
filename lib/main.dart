@@ -18,8 +18,15 @@ void main() async {
   );
 
   // Khởi tạo settings từ SharedPreferences trước khi runApp.
+  // Bọc try/catch: nếu plugin shared_preferences fail (vd: channel-error trên
+  // release mode khi R8 strip class pigeon), app vẫn khởi động được với giá trị
+  // mặc định thay vì treo trắng màn hình do exception không bắt được.
   final settings = SettingsState();
-  await settings.load();
+  try {
+    await settings.load();
+  } catch (e, st) {
+    debugPrint('SettingsState.load() failed, dùng giá trị mặc định: $e\n$st');
+  }
 
   runApp(SnapFrameApp(settings: settings));
 }
